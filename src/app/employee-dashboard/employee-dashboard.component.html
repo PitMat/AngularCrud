@@ -20,13 +20,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>1</td>
-    <td>Romek</td>
-    <td>Nowak</td>
-    <td>romek@gmail.com</td>
-    <td>899388129</td>
-    <td>$ 40,000</td>
+  <tr *ngFor="let row of employeeData">
+    <td>{{row.id}}</td>
+    <td>{{row.firstName}}</td>
+    <td>{{row.lastName}}</td>
+    <td>{{row.email}}</td>
+    <td>{{row.mobile}}</td>
+    <td>{{row.salary}}</td>
     <td>
       <button class="btn btn-info">Edit</button>
       <button class="btn btn-danger mx-3">Delete</button>
