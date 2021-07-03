@@ -32,6 +32,7 @@ export class EmployeeDashboardComponent implements OnInit {
     this.employeeModelObj.email = this.formValue.value.email;
     this.employeeModelObj.mobile = this.formValue.value.mobile;
     this.employeeModelObj.salary = this.formValue.value.salary;
+    this.employeeModelObj.id = this.formValue.value.id;
 
     this.apiService.postEmploye(this.employeeModelObj)
       .subscribe(res => {
@@ -50,6 +51,13 @@ export class EmployeeDashboardComponent implements OnInit {
     this.apiService.getEmployee()
       .subscribe(res => {
         this.employeeData = res;
+      });
+  }
+  deleteEmployee(row: any): void{
+    this.apiService.deleteEmployee(row.id)
+      .subscribe(res => {
+        alert('Employee Deleted');
+        this.getAllEmployee();
       });
   }
 }
